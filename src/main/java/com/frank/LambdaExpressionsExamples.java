@@ -19,8 +19,17 @@ public class LambdaExpressionsExamples {
 
         System.out.println("\n-------- Display elements in a List ---------");
 
+//list has its own version of the for each method works just like hte STREAM forEach
+        // the List forEach() uses Iterators to traverse the List
+                //1. iterators to traverse the list you may safetly add or remove elements in the lambda expression
+        //        2. the ordee in which elements is predictable - entry sequence
+        //        3. SLIGHTLY FASTER
 
         names.forEach( (aName) -> {System.out.println("Name: " + aName);});  // List version of forEach()
+
+        //if you have a parameter then you dont need the parenthesis in your lambda expression
+// this is the stream version of the for each loop, List for each is better
+        names.stream().forEach( (aName) -> {System.out.println("Name: " + aName);});  // List version of forEach()
 
         /***************************************************************************************
          * stream().map() Stream Interface function
@@ -56,6 +65,8 @@ public class LambdaExpressionsExamples {
 
         /***************************************************************************************
          * stream().reduce() Stream Interface function
+         * since stream interface methods may be only be applied to a collections class objects
+         * java created a set of equivalent methods for use with a single array
          **************************************************************************************/
         System.out.println("\n-------- Using stream().reduce to sum an ArrayList   ---------");
 
